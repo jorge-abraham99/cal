@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Calculator</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f3f4; /* Light gray background */
+      margin: 0;
+    }
+    .calculator {
+      background-color: #ffffff; /* White background */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+      width: 340px;
+    }
+    .display {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      background-color: #333; /* Dark background */
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: right;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      gap: 10px; /* Space between buttons */
+    }
+    button {
+      height: 70px;
+    }
+    button:hover {
+      background-color: #b8c3c5; /* Darker gray on hover */
+    }
+    button:active {
+      transform: translateY(2px); /* Simulate pressing */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    }
+    .operator {
+      background-color: #ff9500; /* Orange */
+      color: white;
+    }
+    .operator.active {
+      background-color: #ffcc80; /* Lighter orange when active */
+      box-shadow: 0 4px 10px rgba(255, 204, 128, 0.5);
+    }
+    .equal {
+      background-color: #34c759; /* Green */
+      color: white;
+    }
+    .equal:hover {
+      background-color: #2fae49; /* Darker green on hover */
+    }
+    .zero {
+      grid-column: span 2;
+    }
+    .arrow {
+      /* Optionally style the arrow buttons */
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <!-- Display -->
+    <input type="text" id="display" class="display" disabled value="0" />
+    
+    <!-- Buttons -->
+    <div class="buttons">
+      <!-- Top row: AC, prev, next, delete -->
+      <button id="ac">AC</button>
+      <button id="prev" class="arrow">←</button>
+      <button id="next" class="arrow">→</button>
+      <button id="delete" class="arrow">DEL</button>
+
+      <!-- Second row: +/- , sqrt, % and / -->
+      <button id="plus-minus" class="operator" data-action="√">+/-</button>
+      <button id="sqrt" class="operator" data-action="√">√</button>
+      <button class="operator" data-action="%">%</button>
+      <button class="operator" data-action="/">/</button>
+
+      <!-- Next rows: remaining calculator buttons -->
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button class="operator" data-action="*">*</button>
+      
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <button id="six">6</button>
+      <button class="operator" data-action="-">-</button>
+
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button class="operator" data-action="+">+</button>
+
+      <!-- Bottom row -->
+      <button class="zero" id="zero">0</button>
+      <button id="point">.</button>
+      <button class="equal" id="equals">=</button>
+    </div>
+  </div>
+  <script src="calculator.js"></script>
+</body>
+</html>
